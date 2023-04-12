@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>CPRNG based on GLS</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <section class="input_side" id="input_side">
+            <div class="inputs">
+                <form id="gls_p">
+                    <label for="a11">a<sub>11</sub></label>
+                    <input type="text" id="a11" value="-10">
+                    
+                    <label for="a12">a<sub>12</sub></label>
+                    <input type="text" id="a12" value="10">
+
+                    <label for="a21">a<sub>21</sub></label>
+                    <input type="text" id="a21" value="28">
+
+                    <label for="a22">a<sub>22</sub></label>
+                    <input type="text" id="a22" value="1">
+
+                    <label for="l3">λ<sub>3</sub></label>
+                    <input type="text" id="l3" value="-8/3">
+
+                    <label for="presets">presets:</label>
+                    <select id="presets" onfocus="this.selectedIndex = -1;">
+                        <option value="lorenz">Lorenz</option>
+                        <option value="chen">Chen</option>
+                    </select>
+                </form>
+                <div id="vl"></div>
+                <form id="seq_p">
+                    <label>x<sub>0</sub></label>
+                    <input type="text" id="x0" value="1">
+
+                    <label>y<sub>0</sub></label>
+                    <input type="text" id="y0" value="1">
+
+                    <label>z<sub>0</sub></label>
+                    <input type="text" id="z0" value="1">
+
+                    <label>length<sub> </sub></label>
+                    <input type="text" id="len" value="5000">
+
+                    <label>step<sub> </sub></label>
+                    <input type="text" id="step" value="0.01">
+
+                    <label>offset</label>
+                    <input type="text" id="offset" value="100">
+                </form>
+            </div>
+        </section>
+        <section class="graph_side">
+            <p id="gls_eq">
+                \[\dot{x} = \begin{bmatrix}
+                -10 & 10 & 0 \\
+                28 & 1 & 0 \\
+                0 & 0 & -8/3
+                \end{bmatrix}x + x_1\begin{bmatrix}
+                0 & 0 & 0 \\
+                0 & 0 & -1 \\
+                0 & 1 & 0
+                \end{bmatrix}x\]
+            </p>
+            <div class="tabs">
+                <menu>
+                    <button id="generate_tab_b">Generate</button>
+                    <button id="plot_tab_b">Plot</button>
+                </menu>
+                <section class="content">
+                    <div class="plot" id="plot_div">
+                        <div id="graph"></div>
+                        <button id="b1">Plot</button>
+                    </div>
+                    <div class="generators" id="gen_div">
+                        <label>algorithm:</label>
+                        <select id="algs">
+                            <option value="sum">Sum</option>
+                            <option value="xor">XOR</option>
+                            <option value="none">None</option>
+                        </select>
+                        <p id="sum_eq">
+                            \[ v(j) = \sum_{i=1}^3 x_i(j) * 10^{14} \]
+                            \[ K_j = \lfloor v(j) \rceil \; mod \; 256 \]
+                            where \(K_j \in (0, 255), \; j = 0, 1, 2 \ldots length\) and \(x_1(i),\: x_2(i),\: x_3(i)\)
+                            are the samples of the GLS.
+                        </p>
+                        <p id="xor_eq" style="display: none;">
+                            \[ v(3i + k - 1) = \lfloor x_k(i) * 10^{14} \rceil \; mod \; 256\]
+                            \[ K_i = v(3i) \oplus v(3i + 1) \oplus v(3i+2) \]
+                            where \(K_i \in (0, 255), \; k \in \{1, 2, 3\}, \)\( \; i = 0, 1, 2 \ldots length\) and
+                            \(x_1(i),\: x_2(i),\: x_3(i)\) are the samples of the GLS.
+                        </p>
+                        <p id="none_eq" style="display: none;">
+                            \[ v(3i + k - 1) = z_k(i) * 10^{14} \]
+                            \[ K_j = \lfloor v(j) \rceil \; mod \; 256 \]
+                            where \(K_j \in (0, 255), \; k \in \{1, 2, 3\}, \)\( \; i = 0, 1, 2 \ldots length,\)\( \; j =
+                            0, 1, 2 \ldots (3*length+2)\) and \(x_1(i),\: x_2(i),\: x_3(i)\) are the samples of the GLS.
+                        </p>
+                        <button id="gen_b">Generate</button>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="utils.js"></script>
+    <script src="equation.js"></script>
+    <script src="resizing.js"></script>
+    <script src="menu.js"></script>
+    <script src="algorithms.js"></script>
+    <script src="bundle.js"></script>
+    <script src="generate.js"></script>
+</body>
+
+</html>
