@@ -4,6 +4,7 @@ function ch(x) {
     return isNumber(x) ? x : "invalid";
 }
 
+/* Updates the GLS equation once the user updates a GLS parameter. */
 function updateEq(e) {
     let params_values = params.map(p=>p.value)
     plot_button.disabled = !params_values.every(isNumber)
@@ -24,6 +25,7 @@ function updateEq(e) {
 
 form.addEventListener('change', updateEq)
 
+/* Disables buttons if the parameters are invalid. */
 function check_seq_p(e) {
     let init_points_values = init_points.map(p=>p.value)
     let len_step_off_values = len_step_off.map(p=>p.value)
@@ -33,12 +35,14 @@ function check_seq_p(e) {
 
 form_seq_p.addEventListener('change', check_seq_p)
 
+/* Helping function to set GLS parameters. */
 function set_values(values) {
     for (let i = 0; i < params.length; i++) {
         params[i].value = values[i]
     }
 }
 
+/* Changes the GLS parameters based on the user selected preset. */
 let lorenz_args = [-10, 10, 28, 1, "-8/3"]
 let chen = [-35, 35, -7, 28, -3]
 function update_params(e) {

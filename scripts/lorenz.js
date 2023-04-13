@@ -2,6 +2,7 @@ var rk4 = require('ode-rk4')
 var math = require('mathjs')
 var Plotly = require('plotly.js-dist-min')
 
+/* Single iteration of the GLS. */
 var m = math.matrix()
 var lorenz_generalized = function (dydt, y, t) {
     temp = math.transpose(math.multiply(y[0], math.matrix([[0], [-y[2]], [y[1]]])))
@@ -11,6 +12,7 @@ var lorenz_generalized = function (dydt, y, t) {
     dydt[2] = res[2]
 }
 
+/* The main generating function. Generates data using the ode solver. */
 window.solveGLS = function (args, init_p, length, step, offset) {
     m = math.matrix([[args[0], args[1], 0], [args[2], args[3], 0], [0, 0, args[4]]])
     var integrator = rk4(init_p, lorenz_generalized, 0, step)
@@ -22,10 +24,13 @@ window.solveGLS = function (args, init_p, length, step, offset) {
     return y.slice(offset)
 }
 
+/* Transforms generated data from solveGLS to a better form. */
 function unpack(rows, key) {
     return rows.map(function (row) { return row[key]; });
 }
 
+
+/* Generates data and then plots them on the screen. */
 function plotCoords(coord) {
     var x = unpack(coord, 0);
     var y = unpack(coord, 1);

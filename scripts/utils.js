@@ -25,29 +25,35 @@ let param_preset = document.getElementById('presets')
 
 let gen_b = document.getElementById("gen_b")
 
+/* Returns a copy of a 3-length array. */
 function myCopy3(arr) {
     return [arr[0], arr[1], arr[2]]
 }
 
+/* Checks if the given string is a number. */
 let regex = /^[-]?[0-9]+[,.]?[0-9]*([\/][0-9]+[,.]?[0-9]*)*$/
 function isNumber(x) {
     return x.match(regex) != null
 }
 
+/* Evaluates a number and parses it to float. */
 function eval_number(x) {
     return parseFloat(eval(x))
 }
 
+/* Evaluates a element value and parses it to float. */
 function read_and_eval(elem) {
     elem = parseFloat(eval(elem.value))
     return elem
     // return isNaN(elem) ? 0 : elem
 }
 
+/* Transforms a decimal to a binary number with the length 8.*/
 function decToBin(x) {
     return Number(x).toString(2).padStart(8, '0')
 }
 
+/* Just a normal modulo function. Javascript default modulo works strangely. */
 function myModulo(x, y) {
     return x - y * Math.floor(x / y)
 }

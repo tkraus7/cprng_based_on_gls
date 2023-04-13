@@ -2,6 +2,7 @@
 const cont = document.getElementById("container")
 const inp_side = document.getElementById("input_side")
 
+/* Changes the positions of the screen elements based on the screen size. */
 function resizer() {
     if (window.innerWidth < 1020) {
         cont.style.flexDirection = "column"
@@ -23,5 +24,4 @@ function resizer() {
 window.addEventListener("resize", resizer)
 resizer()
 
-// window.resizeTo(window.innerWidth-1, window.innerHeight)
 
