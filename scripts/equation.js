@@ -39,7 +39,6 @@ function check_seq_p(e) {
 }
 
 
-document.getElementsByClassName
 seq_p.addEventListener('change', check_seq_p)
 gls_p.addEventListener('change', check_seq_p)
 
