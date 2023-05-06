@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 
 <body>
     <div class="container" id="container">
-        <section class="input_side" id="input_side">
+        <div class="input_side" id="input_side">
             <div class="inputs">
                 <form id="gls_p">
                     <label for="a11">a<sub>11</sub></label>
@@ -50,7 +50,7 @@
                     <input type="text" id="z0" value="1">
 
                     <label>length<sub> </sub></label>
-                    <input type="text" id="len" value="5000">
+                    <input type="text" id="len" value="5000" autofocus>
 
                     <label>step<sub> </sub></label>
                     <input type="text" id="step" value="0.01">
@@ -59,8 +59,8 @@
                     <input type="text" id="offset" value="100">
                 </form>
             </div>
-        </section>
-        <section class="graph_side">
+        </div>
+        <div class="graph_side">
             <p id="gls_eq">
                 \[\dot{x} = \begin{bmatrix}
                 -10 & 10 & 0 \\
@@ -74,10 +74,10 @@
             </p>
             <div class="tabs">
                 <menu>
-                    <button id="generate_tab_b">Generate</button>
-                    <button id="plot_tab_b">Plot</button>
+                    <li><button id="generate_tab_b">Generate</button></li>
+                    <li><button id="plot_tab_b">Plot</button></li>
                 </menu>
-                <section class="content">
+                <div class="content">
                     <div class="plot" id="plot_div">
                         <div id="graph"></div>
                         <button id="b1">Plot</button>
@@ -109,9 +109,9 @@
                         </p>
                         <button id="gen_b">Generate</button>
                     </div>
-                </section>
+                </div>
             </div>
-        </section>
+        </div>
     </div>
 
 
@@ -119,6 +119,7 @@
     <script src="scripts/equation.js"></script>
     <script src="scripts/menu.js"></script>
     <script src="scripts/algorithms.js"></script>
+    <script src="scripts/history.js"></script>
     <script src="scripts/bundle.js"></script>
     <script src="scripts/generate.js"></script>
     <script src="scripts/plot.js"></script>

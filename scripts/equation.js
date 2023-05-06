@@ -30,6 +30,8 @@ function check_seq_p(e) {
     let params_values = params.map(p=>p.value)
     let init_points_values = init_points.map(p=>p.value)
     let len_step_off_values = len_step_off.map(p=>p.value)
+    history.pushState([params_values, init_points_values, len_step_off_values], null, null)
+
     let isDisabled = !(init_points_values.every(isNumber)
                      && len_step_off_values.every(isNumber)
                      && params_values.every(isNumber))
@@ -39,8 +41,8 @@ function check_seq_p(e) {
 }
 
 
-seq_p.addEventListener('change', check_seq_p)
-gls_p.addEventListener('change', check_seq_p)
+form_seq_p.addEventListener('change', check_seq_p)
+form.addEventListener('change', check_seq_p)
 
 /* Helping function to set GLS parameters. */
 function set_values(values) {

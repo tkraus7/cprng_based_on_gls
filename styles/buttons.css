@@ -39,6 +39,12 @@
     border-bottom: 0;
 }
 
+.graph_side menu li {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
 .graph_side menu button {
     margin-bottom: 0;
     padding: 5px 20px;
