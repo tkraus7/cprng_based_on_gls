@@ -8,6 +8,7 @@ function putValues(fields, values) {
 /* Recovers form values based on the popped history state. */
 let defaultState = [['-10', '10', '28', '1', '-8/3'], ['1', '1', '1'], ['5000', '0.01', '100']]
 function recoverHistory(e) {
+    console.log("popped", e.state)
     let state = e.state == null ? defaultState : e.state
 
     putValues(params, state[0])

@@ -46,17 +46,17 @@
         #04b0ee 20deg,
         transparent 160deg
     );
-    height: 300%;
+    height: 275%;
     width: 150%;
     position: absolute;
     left: -25%;
-    top: -100%;
+    top: -75%;
     animation: rotate 2s infinite linear; 
 }
 
 @keyframes rotate{
     100%{
-        transform: rotate(-360deg);
+        transform: rotate(360deg);
     }
 }
 #b1::after {
