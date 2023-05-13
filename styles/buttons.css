@@ -54,11 +54,16 @@
     animation: rotate 2s infinite linear; 
 }
 
+#b1:disabled:before {
+    animation-play-state: paused;
+}
+
 @keyframes rotate{
     100%{
         transform: rotate(360deg);
     }
 }
+
 #b1::after {
     content: "Plot";
     height: 88%;
