@@ -11,6 +11,7 @@
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </head>
 
 <body>
@@ -81,7 +82,7 @@
                 <div class="content">
                     <div class="plot" id="plot_div">
                         <div id="graph"></div>
-                        <button id="b1">Plot</button>
+                        <button id="b1" onclick="playAudio('audio/button_click.mp3')">Plot</button>
                     </div>
                     <div class="generators" id="gen_div">
                         <label>algorithm:</label>
@@ -108,7 +109,7 @@
                             where \(K_j \in (0, 255), \; k \in \{1, 2, 3\}, \)\( \; i = 0, 1, 2 \ldots length,\)\( \; j =
                             0, 1, 2 \ldots (3*length+2)\) and \(x_1(i),\: x_2(i),\: x_3(i)\) are the samples of the GLS.
                         </p>
-                        <button id="gen_b">Generate</button>
+                        <button id="gen_b" onclick="playAudio('audio/button_click.mp3')">Generate<img src="img/arrow.svg" width="30" height="20"></button>
                     </div>
                 </div>
             </div>

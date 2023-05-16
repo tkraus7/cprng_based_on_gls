@@ -41,7 +41,7 @@ function eval_number(x) {
     return parseFloat(eval(x))
 }
 
-/* Evaluates a element value and parses it to float. */
+/* Evaluates an element value and parses it to float. */
 function read_and_eval(elem) {
     elem = parseFloat(eval(elem.value))
     return elem
@@ -56,4 +56,9 @@ function decToBin(x) {
 /* Just a normal modulo function. Javascript default modulo works strangely. */
 function myModulo(x, y) {
     return x - y * Math.floor(x / y)
+}
+
+/* Plays inputed audio. */
+function playAudio(src) {
+    new Audio(src).play()
 }

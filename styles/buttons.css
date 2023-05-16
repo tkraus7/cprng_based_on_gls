@@ -1,6 +1,6 @@
 /* plot and generate buttons */
 .content button {
-    display: block;
+    display: inline-block;
     padding: 15px 25px;
     margin: 15px auto 25px auto;
     font-size: 24px;
@@ -29,6 +29,11 @@
 .content button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+#gen_b img {
+    margin-top: 5px;
+    margin-bottom: -5px;
 }
 
 /* plot button animation */
