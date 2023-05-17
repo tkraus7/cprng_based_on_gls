@@ -17,7 +17,7 @@ The following nonlinear system of ordinary differential equations in $R^3$ is ca
 ``` 
 where $x = [x_1\ x_2\ x_3]^T$, $λ_3 \in R$ and $A$ is a real matrix (2x2):
 ```math
-\dot{x} = \begin{bmatrix}
+A = \begin{bmatrix}
                 a_{11} & a_{12} \\
                 a_{21} & a_{22}
                 \end{bmatrix},
