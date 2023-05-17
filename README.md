@@ -39,3 +39,7 @@ Once you're done with setting the parameters, you can either choose to generate 
 The default selected one is **Sum**. All you need to do now is pressed the button **Generate**. You will be prompted with a dialog window, where you can specify the name of the resulting .txt file. Once you press **ok** the download should start automatically.  
 
 If you want to plot the system then simply press the **Plot** button. You should see a 3D graph of your system.
+
+## Installation
+
+No additional programs are required. Simply download the files and open index.html in a browser of your choice.
